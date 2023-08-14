@@ -13,14 +13,20 @@ RewriteCond %{HTTP_ACCEPT} application/xhtml\+xml [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Mozilla/.*
 RewriteRule ^$ https://besteves4.github.io/ [R=303,NE,L]
 
-RewriteCond %{HTTP_ACCEPT} !application/rdf\+xml.*(text/html|application/xhtml\+xml)
-RewriteCond %{HTTP_ACCEPT} text/html [OR]
-RewriteCond %{HTTP_ACCEPT} application/xhtml\+xml [OR]
-RewriteCond %{HTTP_USER_AGENT} ^Mozilla/.*
-RewriteRule ^phd-thesis/?$ https://github.com/besteves4/phd-thesis/ [R=303,NE,L]
+##########
+# Thesis #
+##########
 
+# Thesis text
 RewriteCond %{HTTP_ACCEPT} !application/rdf\+xml.*(text/html|application/xhtml\+xml)
 RewriteCond %{HTTP_ACCEPT} text/html [OR]
 RewriteCond %{HTTP_ACCEPT} application/xhtml\+xml [OR]
 RewriteCond %{HTTP_USER_AGENT} ^Mozilla/.*
-RewriteRule ^phd-contributions/?$ https://besteves4.github.io/phd-contributions/ [R=303,NE,L]
+RewriteRule ^phd/thesis/?$ https://github.com/besteves4/phd-thesis/ [R=303,NE,L]
+
+#Thesis contributions
+RewriteCond %{HTTP_ACCEPT} !application/rdf\+xml.*(text/html|application/xhtml\+xml)
+RewriteCond %{HTTP_ACCEPT} text/html [OR]
+RewriteCond %{HTTP_ACCEPT} application/xhtml\+xml [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mozilla/.*
+RewriteRule ^phd/contributions/?$ https://besteves4.github.io/phd-contributions/ [R=303,NE,L]
